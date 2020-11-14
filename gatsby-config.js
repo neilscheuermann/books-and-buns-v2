@@ -4,5 +4,14 @@ export default {
     siteUrl: 'http://www.booksandbuns.com',
     description: 'website for Books and Buns business',
   },
-  plugins: ['gatsby-plugin-styled-components'],
+  plugins: [
+    'gatsby-plugin-styled-components',
+    {
+      resolve: `gatsby-source-podcast-rss-feed`,
+      options: {
+        feedURL: `https://feed.podbean.com/booksandbuns/feed.xml`,
+        id: 'guid',
+      },
+    },
+  ],
 }
