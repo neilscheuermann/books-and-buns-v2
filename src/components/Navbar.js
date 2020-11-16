@@ -9,17 +9,7 @@ import {
   TABLET_MAX_WIDTH,
 } from '../styles/GlobalStyles'
 
-const NavItem = ({ to, children, pathname }) => {
-  const selected = pathname ? pathname.toLowerCase() === to : false
-
-  return (
-    <StyledLink className="navbar-item" to={to}>
-      <NavItemText selected={selected}>{children}</NavItemText>
-    </StyledLink>
-  )
-}
-
-export default function Navbar({ pathname }) {
+export default function Navbar() {
   const [navBarActiveClass, setNavBarActiveClass] = useState('')
   const [hamburgerActive, setHamburgerActive] = useState(false)
   const { isMobile } = useReactResponsive()
@@ -76,26 +66,25 @@ export default function Navbar({ pathname }) {
           {/*              */}
         </NavbarBrandStyled>
         <NavMenu id="navMenu" className={`navbar-menu ${navBarActiveClass}`}>
-          <NavItemsWrapper
+          <ItemsWrapperStyles
             className={isMobileTemp ? 'navbar-start has-text-centered' : ''}
           >
-            <NavItem pathname={pathname} to="/">
+            <Link className="navbar-item" to="/">
               Home
-            </NavItem>
-            <NavItem pathname={pathname} to="/editing">
+            </Link>
+            <Link className="navbar-item" to="/editing">
               Editing
-            </NavItem>
-            <NavItem pathname={pathname} to="/podcasts">
+            </Link>
+            <Link className="navbar-item" to="/podcasts">
               Podcasts
-            </NavItem>
-            <NavItem pathname={pathname} to="/blog">
+            </Link>
+            <Link className="navbar-item" to="/blog">
               Blog
-            </NavItem>
-            <NavItem pathname={pathname} to="/connect">
+            </Link>
+            <Link className="navbar-item" to="/connect">
               Connect
-            </NavItem>
-            {/* <NavItem pathname={pathname} to="/contact/examples">Form Examples</NavItem> */}
-          </NavItemsWrapper>
+            </Link>
+          </ItemsWrapperStyles>
         </NavMenu>
       </NavbarContentWrapper>
     </NavStyles>
@@ -146,16 +135,36 @@ const NavbarBrandStyled = styled.div`
   align-items: center;
 `
 
-const NavItemsWrapper = styled.div`
+const ItemsWrapperStyles = styled.div`
   ${/* Web */ ''}
   @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
     display: flex;
   }
-`
 
-const StyledLink = styled((props) => <Link {...props} />)`
-  color: white;
-  margin: 0 8px;
+  a {
+    color: white;
+    margin: 0 8px;
+    font-size: 1.5rem;
+
+    ${/* Mobile or Tablet*/ ''}
+    @media (max-width: ${TABLET_MAX_WIDTH}) {
+      margin: 6px;
+    }
+
+    &:hover {
+      color: black;
+    }
+
+    &[aria-current='page'] {
+      font-size: 1.7rem;
+      font-weight: 900;
+
+      ${/* Mobile or Tablet */ ''}
+      @media (max-width: ${TABLET_MAX_WIDTH}) {
+        border-bottom: 2px solid white;
+      }
+    }
+  }
 `
 
 const NavMenu = styled.div`
@@ -169,29 +178,4 @@ const NavMenu = styled.div`
   @media (max-width: ${TABLET_MAX_WIDTH}) {
     background-color: var(--border-color);
   }
-`
-
-const NavItemText = styled.p`
-  ${/* Mobile or Tablet*/ ''}
-  @media (max-width: ${TABLET_MAX_WIDTH}) {
-    margin: 6px;
-  }
-
-  ${StyledLink}:hover {
-    color: black;
-  }
-
-  ${({ selected }) =>
-    selected &&
-    `
-      font-size: 1.7em;
-      font-weight: 900;
-      display: inline-block;
-      border-bottom: 2px solid white;
-
-      ${/* Web */ ''}
-      @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
-        border-bottom: 2px solid var(--border-color);
-      }
-    `}
 `
