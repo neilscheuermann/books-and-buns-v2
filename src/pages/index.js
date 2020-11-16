@@ -5,7 +5,7 @@ import useReactResponsive from '../hooks/useReactResponsive'
 import bethLindsPiggyBack from '../assets/images/beth-linds-piggy-back.jpg'
 import { TABLET_MAX_WIDTH_PLUS_1 } from '../styles/GlobalStyles'
 
-export default function IndexPage({ location: { pathname } }) {
+export default function IndexPage() {
   const { isMobile } = useReactResponsive()
 
   return (

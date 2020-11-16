@@ -1,5 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
+export const TABLET_MAX_WIDTH = '768px'
+export const TABLET_MAX_WIDTH_PLUS_1 = '769px'
+
 const GlobalStyles = createGlobalStyle`
   :root {
     --black: #000;
@@ -29,8 +32,38 @@ const GlobalStyles = createGlobalStyle`
     background-color: white;
   }
 
-  button {
+  .button {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: var(--orange);
+    font-size: 1.5rem;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 8px 16px;
 
+    &:hover {
+      color: white;
+      background-color: var(--orange-dark);
+      cursor: pointer;
+    }
+  }
+
+  button {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: var(--orange);
+    font-size: 1.5rem;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 8px 16px;
+
+    &:hover {
+      color: white;
+      background-color: var(--orange-dark);
+      cursor: pointer;
+    }
   }
 
   // List styling
@@ -44,6 +77,3 @@ const GlobalStyles = createGlobalStyle`
 `
 
 export default GlobalStyles
-
-export const TABLET_MAX_WIDTH = '768px'
-export const TABLET_MAX_WIDTH_PLUS_1 = '769px'
