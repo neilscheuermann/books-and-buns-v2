@@ -25,7 +25,7 @@ const Typography = createGlobalStyle`
 
   html {
     font-family: 'Tw Cen Medium Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: var(--gray-black);
+    color: var(--black-gray);
   }
 
   p {

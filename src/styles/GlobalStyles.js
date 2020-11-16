@@ -6,11 +6,12 @@ export const TABLET_MAX_WIDTH_PLUS_1 = '769px'
 const GlobalStyles = createGlobalStyle`
   :root {
     --black: #000;
-    --gray-black: #333;
+    --black-gray: #333;
     --white: #fff;
 
-    // TODO>>>: make this a color palate color instead?
+    // TODO>>>: make these a color palate color instead?
     --border-color: rgb(184, 191, 204);
+    --background-color-light-blue: rgb(218, 228, 245);
 
     // Our color palate 
     // https://coolors.co/dae4f5-fbf0ee-e0a690-d78d70-ce7450
@@ -32,6 +33,7 @@ const GlobalStyles = createGlobalStyle`
     background-color: white;
   }
 
+  // This should match whatever is in the button{} styles
   .button {
     border: none;
     border-radius: 5px;
@@ -73,6 +75,11 @@ const GlobalStyles = createGlobalStyle`
     content: "•"; 
     display: inline-block; 
     width: 1em;
+  }
+
+  .jc-center {
+    display: flex;
+    justify-content: center;
   }
 `
 

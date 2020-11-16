@@ -86,7 +86,6 @@ const FooterStyles = styled.footer`
 `
 
 const FontCredit = styled.div`
-  font-family: 'Tw Cen Medium Regular';
   position: absolute;
 
   ${/* Web */ ''}

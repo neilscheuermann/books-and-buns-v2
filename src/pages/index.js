@@ -107,7 +107,6 @@ const Section1TextWrapper = styled.div`
 `
 
 const Section1Header = styled.h1`
-  font-family: 'Tw Cen Medium Regular';
   display: flex;
   justify-content: center;
   font-size: 2em;

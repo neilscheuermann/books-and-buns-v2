@@ -99,10 +99,8 @@ const SectionStyles = styled.div`
 `
 
 const ButtonWrapper = styled.div`
-  width: inherit;
   display: flex;
   justify-content: flex-end;
-  margin-right: 64px;
 
   ${/* Mobile or Tablet*/ ''}
   @media (max-width: ${TABLET_MAX_WIDTH}) {
