@@ -20,10 +20,9 @@ const GlobalStyles = createGlobalStyle`
     --box-shadow: 0 0.5em 1em -0.125em rgba(43, 37, 35, 0.1), 0 0px 0 1px rgba(43, 37, 35, 0.0);
 
     // dimensions
-    --tablet-max-width: 768px;
-    --tablet-max-width-plus-1: 769px;
-    --header-height-mobile: 78px;
     --footer-height: 64px;
+    --header-height: 96px;
+    --header-height-mobile: 78px;
   }
 
   body {
@@ -45,3 +44,6 @@ const GlobalStyles = createGlobalStyle`
 `
 
 export default GlobalStyles
+
+export const TABLET_MAX_WIDTH = '768px'
+export const TABLET_MAX_WIDTH_PLUS_1 = '769px'

@@ -1,6 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import {
+  TABLET_MAX_WIDTH_PLUS_1,
+  TABLET_MAX_WIDTH,
+} from '../styles/GlobalStyles'
 
 import instagram24px from '../assets/images/icons-and-logos/social/instagram-24-px.svg'
 import twitter24px from '../assets/images/icons-and-logos/social/twitter-24-px.svg'
@@ -46,7 +50,7 @@ export default function Footer() {
           style={{ width: '1.5em', height: '1.5em' }}
         />
       </a>
-      <Link to={`/contact`}>
+      <Link to={`/connect`}>
         <img
           src={gmail24px}
           alt="Email"
@@ -72,7 +76,7 @@ const FooterStyles = styled.footer`
   position: relative;
 
   ${/* Mobile or Tablet*/ ''}
-  @media (max-width: var(--tablet-max-width)) {
+  @media (max-width: ${TABLET_MAX_WIDTH}) {
     margin-bottom: 64px;
   }
 
@@ -86,13 +90,13 @@ const FontCredit = styled.div`
   position: absolute;
 
   ${/* Web */ ''}
-  @media only screen and (min-width: var(--tablet-max-width-plus-1)) {
+  @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
     bottom: 8px;
     right: 8px;
   }
 
   ${/* Mobile or Tablet*/ ''}
-  @media (max-width: var(--tablet-max-width)) {
+  @media (max-width: ${TABLET_MAX_WIDTH}) {
     bottom: -16px;
     font-size: 0.8em;
     justify-content: center;

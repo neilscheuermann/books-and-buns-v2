@@ -6,6 +6,7 @@ export default {
   },
   plugins: [
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-sass',
     {
       resolve: `gatsby-source-podcast-rss-feed`,
       options: {

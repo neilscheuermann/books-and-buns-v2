@@ -27,6 +27,11 @@ const Typography = createGlobalStyle`
     font-family: 'Tw Cen Medium Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: var(--gray-black);
   }
+
+  p {
+    line-height: 1.5;
+    font-size: 1.5rem;
+  }
 `
 
 export default Typography
