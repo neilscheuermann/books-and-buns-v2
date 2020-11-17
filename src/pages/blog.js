@@ -1,9 +1,10 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import styled from 'styled-components'
-import cookiesImg from '../assets/images/cookies.jpg'
 import { TABLET_MAX_WIDTH_PLUS_1 } from '../styles/GlobalStyles'
 
-export default function Blog() {
+export default function Blog({ data }) {
   return (
     <div className="jc-center">
       <WrapperStyles>
@@ -11,7 +12,13 @@ export default function Blog() {
           <h1>Monster Cookies</h1>
         </div>
         <div className="jc-center">
-          <img src={cookiesImg} alt="" />
+          <Img
+            style={{ width: '100%' }}
+            fluid={{
+              ...data.cookiesImg.childImageSharp.fluid,
+              aspectRatio: 16 / 9,
+            }}
+          />
         </div>
         <p>
           We can’t get enough of delicious, easy snacks. Especially during a
@@ -86,21 +93,20 @@ export default function Blog() {
   )
 }
 
-const WrapperStyles = styled.div`
-  max-width: 800px;
-
-  img {
-    object-fit: cover;
-    width: 100%;
-    height: 300px;
-
-    ${/* Web */ ''}
-      @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
-      height: 400px;
+export const query = graphql`
+  query {
+    cookiesImg: file(relativePath: { eq: "cookies.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
     }
   }
+`
 
-  }
+const WrapperStyles = styled.div`
+  max-width: 800px;
 
   p {
     font-size: 1.5em;

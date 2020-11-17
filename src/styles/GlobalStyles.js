@@ -68,6 +68,11 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  img {
+    border-radius: 5px;
+    box-shadow: var(--box-shadow)
+  }
+
   // List styling
   ul {list-style: none}
 

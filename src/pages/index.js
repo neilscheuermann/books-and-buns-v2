@@ -1,11 +1,12 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import useReactResponsive from '../hooks/useReactResponsive'
-import bethLindsPiggyBack from '../assets/images/beth-linds-piggy-back.jpg'
 import { TABLET_MAX_WIDTH_PLUS_1 } from '../styles/GlobalStyles'
 
-export default function IndexPage() {
+export default function IndexPage({ data }) {
   const { isMobile } = useReactResponsive()
 
   return (
@@ -19,8 +20,7 @@ export default function IndexPage() {
         messages, plots, characters, and imagination can reach the people that
         need it.
       </p>
-      {/* Orange dot divider */}
-      {isMobile && <div class="divider div-transparent div-dot"></div>}
+      {isMobile && <DividerStyles></DividerStyles>}
       <Section1>
         <Section1TextWrapper>
           <div>
@@ -54,10 +54,11 @@ export default function IndexPage() {
             </p>
           </div>
         </Section1TextWrapper>
-        <Section1Img
-          src={bethLindsPiggyBack}
-          alt="Lindsay and Bethany"
-          className="border box-shadow"
+        <Img
+          style={{
+            width: '40vw',
+          }}
+          fluid={data.indexPageImg.childImageSharp.fluid}
         />
       </Section1>
       <div
@@ -84,8 +85,18 @@ export default function IndexPage() {
   )
 }
 
-// Section 1
-//
+export const query = graphql`
+  query {
+    indexPageImg: file(relativePath: { eq: "beth-linds-piggy-back.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
+
 const Section1 = styled.div`
   ${/* Web */ ''}
   @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
@@ -113,11 +124,38 @@ const Section1Header = styled.h1`
   margin-top: 32px;
 `
 
-const Section1Img = styled.img`
-  ${/* Web */ ''}
-  @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
-    width: 40%;
-    object-fit: cover;
-    margin: 16px;
+const DividerStyles = styled.div`
+  position: relative;
+  margin: 90px 0;
+  height: 1px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      rgb(48, 49, 51),
+      transparent
+    );
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -9px;
+    left: calc(50% - 9px);
+    width: 18px;
+    height: 18px;
+    background-color: goldenrod;
+    border: 1px solid rgb(48, 49, 51);
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px white, 0 0 0 4px white;
   }
 `
