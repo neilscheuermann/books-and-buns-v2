@@ -36,7 +36,7 @@ async function turnPodcastEpisodesIntoPages({ graphql, actions }) {
     const slug = slugify(item.title)
 
     actions.createPage({
-      path: `podcast/${slug}`,
+      path: `podcasts/${slug}`,
       component: podcastEpisodeTemplate,
       context: {
         id,

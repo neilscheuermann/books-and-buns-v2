@@ -116,24 +116,3 @@ const ButtonWrapper = styled.div`
     }
   }
 `
-
-const StyledLink = styled((props) => <Link {...props} />)`
-  font-size: 2em;
-  border: none;
-  padding: 8px 16px;
-  color: white;
-  background-color: var(--orange);
-  border-radius: 5px;
-
-  ${/* Mobile or Tablet*/ ''}
-  @media (max-width: ${TABLET_MAX_WIDTH}) {
-    width: 100%;
-    text-align: center;
-    margin-top: 32px;
-  }
-
-  :hover {
-    color: white;
-    background-color: var(--orange-dark);
-  }
-`

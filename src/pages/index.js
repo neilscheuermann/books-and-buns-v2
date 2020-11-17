@@ -58,7 +58,10 @@ export default function IndexPage({ data }) {
           style={{
             width: '40vw',
           }}
-          fluid={data.indexPageImg.childImageSharp.fluid}
+          fluid={{
+            ...data.indexPageImg.childImageSharp.fluid,
+            aspectRatio: 4 / 4,
+          }}
         />
       </Section1>
       <div
