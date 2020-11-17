@@ -10,7 +10,7 @@ export default {
     {
       resolve: `gatsby-source-podcast-rss-feed`,
       options: {
-        feedURL: `https://feed.podbean.com/booksandbuns/feed.xml`,
+        feedURL: `https://booksandbuns.libsyn.com/rss`,
         id: 'guid',
       },
     },
