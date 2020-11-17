@@ -29,8 +29,11 @@ const Typography = createGlobalStyle`
   }
 
   p {
-    line-height: 1.5;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  h1, h2 {
+    font-weight: 700;
   }
 `
 
