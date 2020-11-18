@@ -31,10 +31,6 @@ const Typography = createGlobalStyle`
   p {
     font-size: 1.2rem;
   }
-
-  h1, h2 {
-    font-weight: 700;
-  }
 `
 
 export default Typography

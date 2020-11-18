@@ -33,22 +33,9 @@ const GlobalStyles = createGlobalStyle`
     background-color: white;
   }
 
-  // This should match whatever is in the button{} styles
-  .button {
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background: var(--orange);
-    font-size: 1.5rem;
-    white-space: nowrap;
+  a {
+    color: inherit;
     text-decoration: none;
-    padding: 8px 16px;
-
-    &:hover {
-      color: white;
-      background-color: var(--orange-dark);
-      cursor: pointer;
-    }
   }
 
   button {
@@ -68,9 +55,22 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  img {
+  // This should match whatever is in the button{} styles
+  .button {
+    border: none;
     border-radius: 5px;
-    box-shadow: var(--box-shadow)
+    color: white;
+    background: var(--orange);
+    font-size: 1.5rem;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 8px 16px;
+
+    &:hover {
+      color: white;
+      background-color: var(--orange-dark);
+      cursor: pointer;
+    }
   }
 
   // List styling
@@ -80,6 +80,19 @@ const GlobalStyles = createGlobalStyle`
     content: "•"; 
     display: inline-block; 
     width: 1em;
+  }
+
+  // Classes
+  // 
+
+  .apply-max-width {
+    max-width: 1480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .center-text {
+    text-align: center;
   }
 
   .jc-center {

@@ -1,22 +1,35 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { slugify } from '../utils/helpers'
 
 export default function PodcastList({ podcastEpisodes }) {
   return (
-    <div>
+    <WrapperStyles className="apply-max-width">
       {podcastEpisodes.map((episode) => {
+        const { title, itunes } = episode.item
         const slug = slugify(episode.item.title)
 
         return (
-          <div key={episode.id}>
-            <Link to={`/podcasts/${slug}`}>
-              <h2>{episode.item.title}</h2>
-            </Link>
-            <div>{episode.item.isoDate}</div>
-          </div>
+          <Link to={`/podcasts/${slug}`}>
+            <div key={episode.id}>
+              <h2 className="center-text">{title}</h2>
+              <img src={itunes.image} alt={`${title} cover`} />
+            </div>
+          </Link>
         )
       })}
-    </div>
+    </WrapperStyles>
   )
 }
+
+const WrapperStyles = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+
+  h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+`

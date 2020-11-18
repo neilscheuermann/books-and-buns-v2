@@ -25,6 +25,7 @@ export default function Layout({ children }) {
 }
 
 const ViewPortStyles = styled.div`
+  // In place to stretch nav and footer when content doesn't fill the screen
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -32,7 +33,6 @@ const ViewPortStyles = styled.div`
 `
 
 const ContentStyles = styled.div`
-  margin-bottom: 24px;
   margin-top: var(--header-height);
 
   ${/* Mobile or Tablet */ ''}

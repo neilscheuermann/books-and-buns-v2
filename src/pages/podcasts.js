@@ -7,7 +7,6 @@ export default function PodcastsPage({ data }) {
 
   return (
     <div>
-      <h1>The Books and Buns Podcast</h1>
       <PodcastList podcastEpisodes={podcastEpisodes} />
     </div>
   )
@@ -20,7 +19,6 @@ export const query = graphql`
         id
         item {
           title
-          isoDate(formatString: "MM-DD-YYYY")
           itunes {
             image
           }

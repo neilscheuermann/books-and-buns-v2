@@ -72,14 +72,14 @@ export default function Navbar() {
             <Link className="navbar-item" to="/">
               Home
             </Link>
-            <Link className="navbar-item" to="/editing">
-              Editing
-            </Link>
             <Link className="navbar-item" to="/podcasts">
               Podcasts
             </Link>
             <Link className="navbar-item" to="/blog">
               Blog
+            </Link>
+            <Link className="navbar-item" to="/editing">
+              Editing
             </Link>
             <Link className="navbar-item" to="/connect">
               Connect
@@ -98,7 +98,6 @@ const NavStyles = styled.nav`
   width: 100%;
   height: var(--header-height);
   background-color: var(--orange);
-  border-bottom: solid var(--border-color) 1px;
 
   ${/* Mobile or Tablet */ ''}
   @media (max-width: ${TABLET_MAX_WIDTH}) {
