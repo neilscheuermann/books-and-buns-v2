@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import PodcastList from '../components/PodcastList'
+import { TABLET_MAX_WIDTH } from '../styles/GlobalStyles'
+import useReactResponsive from '../hooks/useReactResponsive'
 
 export default function IndexPage({ data }) {
+  const { isMobile } = useReactResponsive()
+  const [isMobileTemp, setIsMobileTemp] = useState('')
+  useEffect(() => {
+    setIsMobileTemp(isMobile)
+  }, [isMobile])
+
   return (
     <div>
       <MainSectionStyles>
@@ -13,7 +21,9 @@ export default function IndexPage({ data }) {
           style={{
             position: 'absolute',
             left: 0,
-            top: `var(--header-height)`,
+            top: isMobileTemp
+              ? `var(--header-height-mobile)`
+              : `var(--header-height)`,
             width: '100%',
             height: 'calc(100vh - var(--header-height))',
             zIndex: 0,
@@ -32,7 +42,7 @@ export default function IndexPage({ data }) {
       </MainSectionStyles>
       <PodcastSectionStyles>
         <Link to="/podcasts/">
-          <h1 className="center-text">Latest Podcasts</h1>
+          <h1 className="center-text home-page-podcast-h1">Latest Podcasts</h1>
         </Link>
         <PodcastList podcastEpisodes={data.latestPodcastEpisodes.nodes} />
       </PodcastSectionStyles>
@@ -63,6 +73,13 @@ const PodcastSectionStyles = styled.div`
 
   h1 {
     margin-top: 0;
+
+    &.podcast-list-h1 {
+      ${/* Mobile or Tablet */ ''}
+      @media (max-width: ${TABLET_MAX_WIDTH}) {
+        display: none;
+      }
+    }
   }
 `
 
