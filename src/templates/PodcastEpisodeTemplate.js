@@ -1,25 +1,36 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import styled from 'styled-components'
 
 export default function PodcastEpisodeTemplate({ data }) {
   const podcastEpisode = data.podcastEpisode.item
-  const { title, pubDate, content } = podcastEpisode
+  const { title, isoDate, content, itunes } = podcastEpisode
 
   return (
-    <div>
+    <PodcastStyles className="apply-max-width-blog">
+      <img src={itunes.image} alt={`${title} cover`} />
       <h1>{title}</h1>
-      <p>{pubDate}</p>
+      <p>{isoDate}</p>
       <div dangerouslySetInnerHTML={{ __html: content }} />
-    </div>
+    </PodcastStyles>
   )
 }
+
+const PodcastStyles = styled.div`
+  p {
+    margin: 24px 0;
+  }
+  a {
+    text-decoration: underline;
+  }
+`
 
 export const query = graphql`
   query($id: String!) {
     podcastEpisode: podcastRssFeedEpisode(id: { eq: $id }) {
       item {
         title
-        pubDate
+        isoDate(formatString: "MM/DD/YYYY")
         content
         itunes {
           episode

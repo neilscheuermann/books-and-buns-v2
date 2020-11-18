@@ -34,6 +34,7 @@ const ViewPortStyles = styled.div`
 
 const ContentStyles = styled.div`
   margin-top: var(--header-height);
+  padding-top: 32px;
 
   ${/* Mobile or Tablet */ ''}
   @media (max-width: ${TABLET_MAX_WIDTH}) {

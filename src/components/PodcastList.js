@@ -26,10 +26,19 @@ export default function PodcastList({ podcastEpisodes }) {
 const WrapperStyles = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
+  gap: 2rem;
 
   h2 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
+  }
+
+  a {
+    padding: 0.3rem;
+
+    &:hover {
+      background-color: var(--link-background-hover);
+      border-radius: 5px;
+    }
   }
 `

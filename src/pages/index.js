@@ -41,7 +41,7 @@ export default function IndexPage({ data }) {
 }
 
 const MainSectionStyles = styled.div`
-  height: calc(100vh - var(--header-height));
+  height: calc(100vh - var(--header-height) - 32px);
   display: flex;
   flex-direction: column;
   justify-content: center;

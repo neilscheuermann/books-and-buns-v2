@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
     --black: #000;
     --black-gray: #333;
     --white: #fff;
+    --link-background-hover: 	#ededed;
 
     // TODO>>>: make these a color palate color instead?
     --border-color: rgb(184, 191, 204);
@@ -87,6 +88,12 @@ const GlobalStyles = createGlobalStyle`
 
   .apply-max-width {
     max-width: 1480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .apply-max-width-blog {
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
   }
