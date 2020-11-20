@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   siteMetadata: {
     title: `Books and Buns`,
     siteUrl: 'http://www.booksandbuns.com',

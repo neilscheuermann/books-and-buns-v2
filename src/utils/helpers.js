@@ -1,4 +1,4 @@
-export function slugify(string) {
+exports.slugify = (string) => {
   const a =
     'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;'
   const b =

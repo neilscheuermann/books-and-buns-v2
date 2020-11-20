@@ -1,10 +1,10 @@
-import path from 'path'
-import { slugify } from './src/utils/helpers'
+const path = require('path')
+const { slugify } = require('./src/utils/helpers')
 
 // Gatsby Node APIs
 //
 
-export async function createPages(params) {
+exports.createPages = async (params) => {
   await Promise.all([turnPodcastEpisodesIntoPages(params)])
 }
 
