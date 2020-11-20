@@ -9,7 +9,8 @@ title: First Test Blog!
 
 ### Header 3
 
-![waffles on a plate](/assets/waffles.jpg)
+<!-- had to change from ![waffles on a plate](/assets/waffles.jpg) -->
+![waffles on a plate](../images/waffles.jpg)
 
 Paragraph with some text... La dee dah...
 
@@ -18,3 +19,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 > Someone wise once said something wise
 
 Check out google [here](google.com).
+

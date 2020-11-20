@@ -1,15 +1,22 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { slugify } from '../utils/helpers'
 
-export default function BlogList() {
+export default function BlogList({ blogPosts }) {
   return (
     <div>
-      <div>
-        <Link to={'monster-cookies-recipe'}>
-          <h2>Monster Cookies Blog</h2>
-        </Link>
-        Publish Date
-      </div>
+      {blogPosts.map((blogPost) => {
+        const { title } = blogPost.node.frontmatter
+        const slug = slugify(title)
+
+        return (
+          <Link to={`/blog/${slug}`}>
+            <div>
+              <h2>{title}</h2>
+            </div>
+          </Link>
+        )
+      })}
     </div>
   )
 }
