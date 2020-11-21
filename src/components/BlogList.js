@@ -6,7 +6,7 @@ import { GridStyles } from './PodcastList'
 
 export default function BlogList({ blogPosts }) {
   return (
-    <GridStyles>
+    <GridStyles className="apply-max-width">
       {blogPosts.map((blogPost) => {
         const { featuredImage, title } = blogPost.node.frontmatter
         const slug = slugify(title)

@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+
 import PodcastList from '../components/PodcastList'
+import BlogList from '../components/BlogList'
 import { TABLET_MAX_WIDTH } from '../styles/GlobalStyles'
 import useReactResponsive from '../hooks/useReactResponsive'
 
@@ -40,12 +42,20 @@ export default function IndexPage({ data }) {
           reach the people that need it.
         </p>
       </MainSectionStyles>
-      <PodcastSectionStyles>
-        <Link to="/podcasts/">
-          <h1 className="center-text home-page-podcast-h1">Latest Podcasts</h1>
-        </Link>
+
+      <GridListPreviewStyles className="podcast-list-section">
+        <h1 className="center-text home-page-podcast-h1">
+          <Link to="/podcasts/">Latest Podcasts</Link>
+        </h1>
         <PodcastList podcastEpisodes={data.latestPodcastEpisodes.nodes} />
-      </PodcastSectionStyles>
+      </GridListPreviewStyles>
+
+      <GridListPreviewStyles className="blog-list-section">
+        <h1 className="center-text home-page-blog-h1">
+          <Link to="/blog/">Latest Blog Posts</Link>
+        </h1>
+        <BlogList blogPosts={data.latestBlogPosts.edges} />
+      </GridListPreviewStyles>
     </div>
   )
 }
@@ -66,10 +76,17 @@ const MainSectionStyles = styled.div`
   }
 `
 
-const PodcastSectionStyles = styled.div`
-  background-color: var(--orange);
+const GridListPreviewStyles = styled.div`
   padding: 3rem 0;
   color: var(--white);
+
+  &.podcast-list-section {
+    background-color: var(--orange);
+  }
+
+  &.blog-list-section {
+    background-color: var(--orange-light);
+  }
 
   h1 {
     margin-top: 0;
@@ -99,6 +116,25 @@ export const query = graphql`
           title
           itunes {
             image
+          }
+        }
+      }
+    }
+    latestBlogPosts: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      limit: 3
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

@@ -2,7 +2,6 @@
 date: 2020-11-21T08:38:48.666Z
 title: Monster Cookies
 featuredImage: ../images/cookies.jpg
-<!-- Provide a descriptive alt text. Most popular screen readers cut off alt text at around 125 characters -->
 altText: Close up of two oatmeal chocolate chip cookies with M&M's on top
 ---
 
