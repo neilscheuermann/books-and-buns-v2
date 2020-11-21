@@ -9,8 +9,7 @@ title: First Test Blog!
 
 ### Header 3
 
-<!-- had to change from ![waffles on a plate](/assets/waffles.jpg) -->
-![waffles on a plate](../images/waffles.jpg)
+![waffles on a plate](/images/waffles.jpg)
 
 Paragraph with some text... La dee dah...
 

@@ -3,7 +3,7 @@ backend:
   repo: neilscheuermann/books-and-buns-v2
 
 media_folder: src/assets/images
-public_folder: /assets
+public_folder: /images
 
 collections:
   - name: blog

@@ -7,4 +7,4 @@ title: Second Test Blog
 
 Cool picture bro
 
-![Moar waffles!!](/assets/moar-waffles.jpeg)
+![Moar waffles!!](/images/moar-waffles.jpeg)
