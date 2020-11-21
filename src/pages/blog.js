@@ -5,7 +5,6 @@ import BlogList from '../components/BlogList'
 export default function BlogPage({ data }) {
   return (
     <div>
-      <h1>The Books and Buns Blog</h1>
       <BlogList blogPosts={data.blogPosts.edges} />
     </div>
   )
@@ -21,6 +20,13 @@ export const query = graphql`
         node {
           frontmatter {
             title
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

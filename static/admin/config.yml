@@ -13,4 +13,6 @@ collections:
     fields:
       - { name: title, label: Title }
       - { name: date, label: Date, widget: datetime }
+      - { name: featuredImage, label: Featured Image, widget: image }
+      - { name: altText, label: Alt Text, hint: Please provide a description of the image for those using screen readers. Max of 125 characters to accomodate most screen readers limits., pattern: ["^[^\n\r].{3,125}$", "125 characters or less"] }
       - { name: body, label: Body, widget: markdown }

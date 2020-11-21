@@ -1,10 +1,10 @@
 ---
-date: 2020-11-21T01:38:48.666Z
+date: 2020-11-21T08:38:48.666Z
 title: Monster Cookies
+featuredImage: ../images/cookies.jpg
+<!-- Provide a descriptive alt text. Most popular screen readers cut off alt text at around 125 characters -->
+altText: Close up of two oatmeal chocolate chip cookies with M&M's on top
 ---
-
-<!-- most popular screen readers cut off alt text at around 125 characters -->
-![Close up of two oatmeal chocolate chip cookies with M&M's](/images/cookies.jpg)
 
 We can’t get enough of delicious, easy snacks. Especially during a Nanowrimo session, or any work-as-much-as-you-can mode. Here we have a recipe that fills two needs at once! As it correlates so well with the fall season all together.
 

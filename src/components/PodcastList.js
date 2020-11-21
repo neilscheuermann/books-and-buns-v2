@@ -9,26 +9,26 @@ import {
 
 export default function PodcastList({ podcastEpisodes }) {
   return (
-    <WrapperStyles className="apply-max-width">
+    <GridStyles className="apply-max-width">
       <h1 className="center-text podcast-list-h1">Podcasts</h1>
       {podcastEpisodes.map((episode) => {
         const { title, itunes } = episode.item
         const slug = slugify(episode.item.title)
 
         return (
-          <Link to={`/podcasts/${slug}`}>
-            <div key={episode.id}>
+          <Link key={episode.id} to={`/podcasts/${slug}`}>
+            <div>
               <h2 className="center-text">{title}</h2>
               <img src={itunes.image} alt={`${title} cover`} />
             </div>
           </Link>
         )
       })}
-    </WrapperStyles>
+    </GridStyles>
   )
 }
 
-const WrapperStyles = styled.div`
+export const GridStyles = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;

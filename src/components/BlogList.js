@@ -1,22 +1,31 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 import { slugify } from '../utils/helpers'
+import { GridStyles } from './PodcastList'
 
 export default function BlogList({ blogPosts }) {
   return (
-    <div>
+    <GridStyles>
       {blogPosts.map((blogPost) => {
-        const { title } = blogPost.node.frontmatter
+        const { featuredImage, title } = blogPost.node.frontmatter
         const slug = slugify(title)
 
         return (
-          <Link to={`/blog/${slug}`}>
+          <Link key={title} to={`/blog/${slug}`}>
             <div>
-              <h2>{title}</h2>
+              <h2 className="center-text">{title}</h2>
+              {/* <img src={itunes.image} alt={`${title} cover`} /> */}
+              <Img
+                fluid={{
+                  ...featuredImage.childImageSharp.fluid,
+                  aspectRatio: 16 / 9,
+                }}
+              />
             </div>
           </Link>
         )
       })}
-    </div>
+    </GridStyles>
   )
 }
