@@ -1,5 +1,4 @@
 ---
-path: made-up-path
 date: 2020-11-20T03:29:22.386Z
 title: First Test Blog!
 ---
