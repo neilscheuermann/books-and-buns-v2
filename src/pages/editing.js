@@ -1,10 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import {
-  TABLET_MAX_WIDTH,
-  TABLET_MAX_WIDTH_PLUS_1,
-} from '../styles/GlobalStyles'
+import { MOBILE_MAX_WIDTH, WEB_MIN_WIDTH } from '../styles/GlobalStyles'
 
 export default function EditingPage() {
   return (
@@ -65,8 +62,7 @@ const WrapperStyles = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 24px;
-  ${/* Web */ ''}
-  @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
+  @media only screen and (min-width: ${WEB_MIN_WIDTH}) {
     width: 80%;
   }
 `
@@ -75,8 +71,7 @@ const SectionStyles = styled.div`
   margin: 48px 0;
   padding: 16px;
 
-  ${/* Mobile or Tablet*/ ''}
-  @media (max-width: ${TABLET_MAX_WIDTH}) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
     margin: 0;
     padding: 32px 16px;
   }
@@ -87,8 +82,7 @@ const SectionStyles = styled.div`
   }
 
   ul {
-    ${/* Web */ ''}
-    @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
+    @media only screen and (min-width: ${WEB_MIN_WIDTH}) {
       width: 45%;
     }
   }
@@ -102,14 +96,12 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
 
-  ${/* Mobile or Tablet*/ ''}
-  @media (max-width: ${TABLET_MAX_WIDTH}) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
     margin: 16px;
   }
 
   a {
-    ${/* Mobile or Tablet*/ ''}
-    @media (max-width: ${TABLET_MAX_WIDTH}) {
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
       width: 100%;
       text-align: center;
       margin-top: 32px;

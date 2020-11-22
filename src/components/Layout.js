@@ -8,7 +8,7 @@ import GlobalStyles from '../styles/GlobalStyles'
 import Typography from '../styles/Typography'
 import Footer from './Footer'
 import Navbar from './Navbar'
-import { TABLET_MAX_WIDTH } from '../styles/GlobalStyles'
+import { MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
 
 export default function Layout({ children }) {
   return (
@@ -36,8 +36,7 @@ const ContentStyles = styled.div`
   margin-top: var(--header-height);
   padding-top: 32px;
 
-  ${/* Mobile or Tablet */ ''}
-  @media (max-width: ${TABLET_MAX_WIDTH}) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
     margin-top: var(--header-height-mobile);
   }
 `

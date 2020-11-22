@@ -1,9 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-  TABLET_MAX_WIDTH,
-  TABLET_MAX_WIDTH_PLUS_1,
-} from '../styles/GlobalStyles'
+import { MOBILE_MAX_WIDTH, WEB_MIN_WIDTH } from '../styles/GlobalStyles'
 import { navigate } from 'gatsby-link'
 
 function encode(data) {
@@ -125,8 +122,7 @@ const WrapperStyles = styled.div`
     font-weight: 900;
     margin-top: 64px;
 
-    ${/* Mobile or Tablet*/ ''}
-    @media (max-width: ${TABLET_MAX_WIDTH}) {
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
       font-size: 1.7em;
       margin-top: 32px;
     }
@@ -136,8 +132,7 @@ const WrapperStyles = styled.div`
 // Form
 //
 const FormWrapper = styled.div`
-  ${/* Web */ ''}
-  @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
+  @media only screen and (min-width: ${WEB_MIN_WIDTH}) {
     display: flex;
     justify-content: center;
   }
@@ -147,22 +142,19 @@ const FormBackground = styled.div`
   background-color: var(--background-color-light-blue);
   padding: 16px;
 
-  ${/* Web */ ''}
-  @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
+  @media only screen and (min-width: ${WEB_MIN_WIDTH}) {
     width: ${FORM_WIDTH_INT}px;
   }
 `
 
 const Form = styled.form`
-  ${/* Web */ ''}
-  @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
+  @media only screen and (min-width: ${WEB_MIN_WIDTH}) {
     width: ${FORM_WIDTH_INT - 32}px;
   }
 `
 
 const InputNameEmailWrapper = styled.div`
-  ${/* Web */ ''}
-  @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
+  @media only screen and (min-width: ${WEB_MIN_WIDTH}) {
     display: flex;
   }
 `
@@ -173,8 +165,7 @@ const InputHalfOrFullWrapper = styled.div`
   padding: 10px 30px 9px 22px;
   margin-bottom: 16px;
 
-  ${/* Mobile or Tablet*/ ''}
-  @media (max-width: ${TABLET_MAX_WIDTH}) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
     width: 100%;
     padding: 10px 8px 9px 8px;
   }
@@ -182,8 +173,7 @@ const InputHalfOrFullWrapper = styled.div`
   ${({ marginRight8px }) =>
     marginRight8px &&
     `
-  ${/* Web */ ''}
-  @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
+  @media only screen and (min-width: ${WEB_MIN_WIDTH}) {
       margin-right: 8px;
     }
   `}
@@ -191,8 +181,7 @@ const InputHalfOrFullWrapper = styled.div`
   ${({ marginLeft8px }) =>
     marginLeft8px &&
     `
-  ${/* Web */ ''}
-  @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
+  @media only screen and (min-width: ${WEB_MIN_WIDTH}) {
       margin-left: 8px;
     }
   `}
@@ -213,8 +202,7 @@ const InputWrapper = styled.div`
   background-color: var(--white);
   margin-bottom: 16px;
 
-  ${/* Mobile or Tablet*/ ''}
-  @media (max-width: ${TABLET_MAX_WIDTH}) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
     padding: 10px 8px 9px 8px;
   }
 `
@@ -225,8 +213,7 @@ const TextAreaWrapper = styled.div`
   min-height: 120px;
   background-color: var(--white);
 
-  ${/* Mobile or Tablet*/ ''}
-  @media (max-width: ${TABLET_MAX_WIDTH}) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
     padding: 10px 16px 9px;
   }
 `
@@ -251,8 +238,7 @@ const ButtonStyles = styled.button`
 //
 
 const ContactInfoWrapper = styled.div`
-  ${/* Web */ ''}
-  @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
+  @media only screen and (min-width: ${WEB_MIN_WIDTH}) {
     display: flex;
     justify-content: center;
   }

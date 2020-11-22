@@ -1,7 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const TABLET_MAX_WIDTH = '768px'
-export const TABLET_MAX_WIDTH_PLUS_1 = '769px'
+// Currently only using one break point globally.
+// WEB
+// @media only screen and (min-width: ${WEB_MIN_WIDTH})
+// MOBILE OR TABLET
+// @media (max-width: ${MOBILE_MAX_WIDTH})
+export const MOBILE_MAX_WIDTH = '768px'
+export const WEB_MIN_WIDTH = '769px'
 
 const GlobalStyles = createGlobalStyle`
   :root {

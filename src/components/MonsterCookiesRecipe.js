@@ -1,7 +1,7 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import { TABLET_MAX_WIDTH_PLUS_1 } from '../styles/GlobalStyles'
+import { WEB_MIN_WIDTH } from '../styles/GlobalStyles'
 
 export default function MonsterCookiesRecipe({ cookiesImg }) {
   return (
@@ -109,7 +109,7 @@ const WrapperStyles = styled.div`
     font-size: 2em;
 
     ${/* Web */ ''}
-    @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
+    @media only screen and (min-width: ${WEB_MIN_WIDTH}) {
       font-size: 4em;
     }
   }
@@ -118,7 +118,7 @@ const WrapperStyles = styled.div`
     margin: 24px 0 16px;
 
     ${/* Web */ ''}
-    @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
+    @media only screen and (min-width: ${WEB_MIN_WIDTH}) {
       margin: 48px 0 24px;
     }
   }

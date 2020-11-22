@@ -4,10 +4,7 @@ import { Link } from 'gatsby'
 import bnbLogoWhite from '../assets/images/icons-and-logos/bnb-logo-white-40px.svg'
 import bnbLogoWhiteSmall from '../assets/images/icons-and-logos/bnb-logo-white-30px.svg'
 import useReactResponsive from '../hooks/useReactResponsive'
-import {
-  TABLET_MAX_WIDTH_PLUS_1,
-  TABLET_MAX_WIDTH,
-} from '../styles/GlobalStyles'
+import { WEB_MIN_WIDTH, MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
 
 export default function Navbar() {
   const [navBarActiveClass, setNavBarActiveClass] = useState('')
@@ -99,8 +96,7 @@ const NavStyles = styled.nav`
   height: var(--header-height);
   background-color: var(--orange);
 
-  ${/* Mobile or Tablet */ ''}
-  @media (max-width: ${TABLET_MAX_WIDTH}) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
     height: var(--header-height-mobile);
   }
 `
@@ -111,8 +107,7 @@ const LogoText = styled.div`
   display: flex;
   align-items: center;
 
-  ${/* Mobile or Tablet*/ ''}
-  @media (max-width: ${TABLET_MAX_WIDTH}) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
     font-size: 30px;
   }
 `
@@ -120,8 +115,7 @@ const LogoText = styled.div`
 const NavbarContentWrapper = styled.div`
   height: inherit;
 
-  ${/* Web */ ''}
-  @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
+  @media only screen and (min-width: ${WEB_MIN_WIDTH}) {
     min-height: 3.25rem;
     width: 100%;
     display: flex;
@@ -135,8 +129,7 @@ const NavbarBrandStyled = styled.div`
 `
 
 const ItemsWrapperStyles = styled.div`
-  ${/* Web */ ''}
-  @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
+  @media only screen and (min-width: ${WEB_MIN_WIDTH}) {
     display: flex;
   }
 
@@ -145,8 +138,7 @@ const ItemsWrapperStyles = styled.div`
     margin: 0 8px;
     font-size: 1.5rem;
 
-    ${/* Mobile or Tablet*/ ''}
-    @media (max-width: ${TABLET_MAX_WIDTH}) {
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
       margin: 6px;
     }
 
@@ -158,8 +150,7 @@ const ItemsWrapperStyles = styled.div`
       font-size: 1.7rem;
       font-weight: 900;
 
-      ${/* Mobile or Tablet */ ''}
-      @media (max-width: ${TABLET_MAX_WIDTH}) {
+      @media (max-width: ${MOBILE_MAX_WIDTH}) {
         border-bottom: 2px solid white;
       }
     }
@@ -167,14 +158,12 @@ const ItemsWrapperStyles = styled.div`
 `
 
 const NavMenu = styled.div`
-  ${/* Web */ ''}
-  @media only screen and (min-width: ${TABLET_MAX_WIDTH_PLUS_1}) {
+  @media only screen and (min-width: ${WEB_MIN_WIDTH}) {
     display: flex;
     justify-content: flex-end;
   }
 
-  ${/* Mobile or Tablet*/ ''}
-  @media (max-width: ${TABLET_MAX_WIDTH}) {
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
     background-color: var(--border-color);
   }
 `

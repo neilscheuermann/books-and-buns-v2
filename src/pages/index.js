@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import PodcastList from '../components/PodcastList'
 import BlogList from '../components/BlogList'
-import { TABLET_MAX_WIDTH } from '../styles/GlobalStyles'
+import { MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
 import useReactResponsive from '../hooks/useReactResponsive'
 
 export default function IndexPage({ data }) {
@@ -17,7 +17,7 @@ export default function IndexPage({ data }) {
 
   return (
     <div>
-      <MainSectionStyles>
+      <IntroSection>
         <Img
           fluid={data.mainBackgroundImg.childImageSharp.fluid}
           style={{
@@ -41,7 +41,7 @@ export default function IndexPage({ data }) {
           processes. So your messages, plots, characters, and imagination can
           reach the people that need it.
         </p>
-      </MainSectionStyles>
+      </IntroSection>
 
       <GridListPreviewStyles className="podcast-list-section">
         <h1 className="center-text home-page-podcast-h1">
@@ -56,11 +56,13 @@ export default function IndexPage({ data }) {
         </h1>
         <BlogList blogPosts={data.latestBlogPosts.edges} />
       </GridListPreviewStyles>
+
+      <EditingPreviewSection></EditingPreviewSection>
     </div>
   )
 }
 
-const MainSectionStyles = styled.div`
+const IntroSection = styled.div`
   height: calc(100vh - var(--header-height) - 32px);
   display: flex;
   flex-direction: column;
@@ -78,26 +80,30 @@ const MainSectionStyles = styled.div`
 
 const GridListPreviewStyles = styled.div`
   padding: 3rem 0;
-  color: var(--white);
 
   &.podcast-list-section {
-    background-color: var(--orange);
+    background-color: var(--white);
   }
 
   &.blog-list-section {
     background-color: var(--orange-light);
+    color: var(--white);
   }
 
   h1 {
     margin-top: 0;
 
     &.podcast-list-h1 {
-      ${/* Mobile or Tablet */ ''}
-      @media (max-width: ${TABLET_MAX_WIDTH}) {
+      @media (max-width: ${MOBILE_MAX_WIDTH}) {
         display: none;
       }
     }
   }
+`
+
+const EditingPreviewSection = styled.div`
+  background-color: var(--orange);
+  height: 70vh;
 `
 
 export const query = graphql`
