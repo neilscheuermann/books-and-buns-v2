@@ -103,6 +103,14 @@ const GlobalStyles = createGlobalStyle`
     margin-right: auto;
   }
 
+  .apply-min-height {
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  }
+
+  .bg-orange-light {
+    background-color: var(--orange-light);
+  }
+
   .center-text {
     text-align: center;
   }

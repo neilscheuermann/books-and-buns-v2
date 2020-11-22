@@ -2,14 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { slugify } from '../utils/helpers'
-import {
-  MOBILE_MAX_WIDTH,
-  WEB_MIN_WIDTH,
-} from '../styles/GlobalStyles'
+import { MOBILE_MAX_WIDTH, WEB_MIN_WIDTH } from '../styles/GlobalStyles'
 
 export default function PodcastList({ podcastEpisodes }) {
   return (
-    <GridStyles className="apply-max-width">
+    <GridStyles>
       <h1 className="center-text podcast-list-h1">Podcasts</h1>
       {podcastEpisodes.map((episode) => {
         const { title, itunes } = episode.item

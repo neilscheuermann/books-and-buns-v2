@@ -6,7 +6,7 @@ export default function PodcastsPage({ data }) {
   const podcastEpisodes = data.podcastEpisodes.nodes
 
   return (
-    <div>
+    <div className="apply-max-width">
       <PodcastList podcastEpisodes={podcastEpisodes} />
     </div>
   )

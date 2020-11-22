@@ -4,7 +4,7 @@ import BlogList from '../components/BlogList'
 
 export default function BlogPage({ data }) {
   return (
-    <div>
+    <div className="apply-min-height bg-orange-light">
       <BlogList blogPosts={data.blogPosts.edges} />
     </div>
   )
