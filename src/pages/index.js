@@ -118,8 +118,6 @@ const GridListPreviewStyles = styled.div`
   }
 
   h1 {
-    margin-top: 0;
-
     &.podcast-list-h1 {
       @media (max-width: ${MOBILE_MAX_WIDTH}) {
         display: none;

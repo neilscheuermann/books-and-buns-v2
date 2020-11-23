@@ -50,13 +50,4 @@ export const GridStyles = styled.div`
       font-size: 1rem;
     }
   }
-
-  a {
-    padding: 0.3rem;
-
-    &:hover {
-      background-color: var(--link-background-hover);
-      border-radius: 5px;
-    }
-  }
 `

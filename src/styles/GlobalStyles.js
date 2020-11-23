@@ -41,7 +41,6 @@ const GlobalStyles = createGlobalStyle`
 
   a {
     color: inherit;
-    text-decoration: none;
   }
 
   hr {
@@ -86,12 +85,20 @@ const GlobalStyles = createGlobalStyle`
   }
 
   // List styling
-  ul {list-style: none}
+  ul {
+    list-style: none;
+    margin: 8px 0;
+  }
 
-  li::before {
+  li {
+    margin: 8px 0;
+    
+    &::before {
+    
     content: "•"; 
     display: inline-block; 
     width: 1em;
+  }
   }
 
   // Classes

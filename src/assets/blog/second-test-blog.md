@@ -7,4 +7,3 @@ featuredImage: ../images/moar-waffles.jpeg
 
 Cool picture bro
 
-![Moar waffles!!](/images/moar-waffles.jpeg)

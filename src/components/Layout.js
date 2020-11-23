@@ -37,5 +37,10 @@ const ContentStyles = styled.div`
 
   @media (max-width: ${MOBILE_MAX_WIDTH}) {
     margin-top: var(--header-height-mobile);
+
+    > div {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
   }
 `
