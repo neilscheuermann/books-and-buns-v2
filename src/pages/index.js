@@ -32,18 +32,26 @@ export default function IndexPage({ data }) {
             boxShadow: 'none',
           }}
         />
-        <p className="apply-max-width">
-          We are an approachable way to elevate your novel. We believe fiction
-          is a tool to access indistinct parts of our souls to find what truly
-          lies within us. This tool allows us to find worlds beyond reality,
-          emotions deeper than daily life, and come out with deeper beliefs. Our
-          role is to journey with you through your discovery and refining
-          processes. So your messages, plots, characters, and imagination can
-          reach the people that need it.
-        </p>
+        <div className="intro-section-content apply-max-width">
+          <div className="left-side">
+            <p className="intro-text">
+              We are an approachable way to elevate your novel. We believe
+              fiction is a tool to access indistinct parts of our souls to find
+              what truly lies within us. This tool allows us to find worlds
+              beyond reality, emotions deeper than daily life, and come out with
+              deeper beliefs. Our role is to journey with you through your
+              discovery and refining processes. So your messages, plots,
+              characters, and imagination can reach the people that need it.
+            </p>
+          </div>
+          <div className="right-side">
+            <div>Something profound</div>
+            <div>Something else profound</div>
+          </div>
+        </div>
       </IntroSection>
 
-      <GridListPreviewStyles className="podcast-list-section">
+      <GridListPreviewStyles className="podcast-list-section apply-max-width">
         <h1 className="center-text home-page-podcast-h1">
           <Link to="/podcasts/">Latest Podcasts</Link>
         </h1>
@@ -68,13 +76,32 @@ const IntroSection = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  > p {
+  // Everything expect the bg picture
+  div.intro-section-content {
     position: relative;
-    color: var(--white);
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 1rem;
-    padding: 1rem;
-    line-height: 2;
+    display: flex;
+    justify-content: space-between;
+
+    .left-side {
+      max-width: 50%;
+
+      .intro-text {
+        line-height: 2;
+        padding: 1rem;
+        background-color: var(--white);
+      }
+    }
+
+    .right-side {
+      border: 1px solid white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      div {
+        background-color: white;
+      }
+    }
   }
 `
 
