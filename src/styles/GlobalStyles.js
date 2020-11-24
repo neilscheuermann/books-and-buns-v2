@@ -12,6 +12,8 @@ export const ORANGE = 'D78D70'
 
 const GlobalStyles = createGlobalStyle`
   :root {
+    // colors
+    //
     --black: #000;
     --black-gray: #333;
     --white: #fff;
@@ -21,21 +23,24 @@ const GlobalStyles = createGlobalStyle`
     --border-color: rgb(184, 191, 204);
     --background-color-light-blue: rgb(218, 228, 245);
 
-    // Our color palate 
-    // https://coolors.co/dae4f5-fbf0ee-e0a690-d78d70-ce7450
+    // Our color palate, https://coolors.co/dae4f5-fbf0ee-e0a690-d78d70-ce7450
     --blue: #DAE4F5;
     --creme: #FBF0EE;
     --orange-light: #E0A690;
     --orange: #${ORANGE};
     --orange-dark: #CE7450;
 
-    --box-shadow: 0 0.5em 1em -0.125em rgba(43, 37, 35, 0.1), 0 0px 0 1px rgba(43, 37, 35, 0.0);
-
     // dimensions
+    //
     --footer-height: 64px;
     --header-height: 96px;
     --header-height-mobile: 78px;
-  }
+ 
+    // misc
+    //
+    --box-shadow: 2px 2px 10px 0px #1f1a26;
+
+ }
 
   body {
     background-color: white;

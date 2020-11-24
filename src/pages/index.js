@@ -45,8 +45,12 @@ export default function IndexPage({ data }) {
             </p>
           </div>
           <div className="right-side">
-            <div>Something profound</div>
-            <div>Something else profound</div>
+            <div>
+              <p>Something profound</p>
+            </div>
+            <div>
+              <p>Something else profound</p>
+            </div>
           </div>
         </div>
       </IntroSection>
@@ -71,7 +75,7 @@ export default function IndexPage({ data }) {
 }
 
 const IntroSection = styled.div`
-  height: calc(100vh - var(--header-height) - 32px);
+  height: calc(100vh - var(--header-height));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,25 +85,40 @@ const IntroSection = styled.div`
     position: relative;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 90%;
 
     .left-side {
-      max-width: 50%;
+      height: 90%;
+      width: 45%;
+      background-color: var(--white);
+      display: flex;
+      align-items: center;
+      box-shadow: var(--box-shadow);
 
       .intro-text {
         line-height: 2;
         padding: 1rem;
-        background-color: var(--white);
       }
     }
 
     .right-side {
-      border: 1px solid white;
+      width: 45%;
+      height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
 
-      div {
-        background-color: white;
+      div:nth-child(1) {
+        height: 25vh;
+        background-color: var(--orange-light);
+        margin-top: 176px;
+        box-shadow: var(--box-shadow);
+      }
+      div:nth-child(2) {
+        height: 25vh;
+        background-color: var(--orange-light);
+        box-shadow: var(--box-shadow);
       }
     }
   }
