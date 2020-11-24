@@ -10,7 +10,7 @@ module.exports = {
     {
       resolve: `gatsby-source-podcast-rss-feed`,
       options: {
-        feedURL: `https://booksandbuns.libsyn.com/rss`,
+        feedURL: `https://booksandbuns.libsyn.com/rss/?include-libsyn-metadata=true`,
         id: 'guid',
       },
     },
