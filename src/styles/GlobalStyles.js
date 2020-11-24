@@ -8,6 +8,8 @@ import { createGlobalStyle } from 'styled-components'
 export const MOBILE_MAX_WIDTH = '768px'
 export const WEB_MIN_WIDTH = '769px'
 
+export const ORANGE = 'D78D70'
+
 const GlobalStyles = createGlobalStyle`
   :root {
     --black: #000;
@@ -24,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
     --blue: #DAE4F5;
     --creme: #FBF0EE;
     --orange-light: #E0A690;
-    --orange: #D78D70;
+    --orange: #${ORANGE};
     --orange-dark: #CE7450;
 
     --box-shadow: 0 0.5em 1em -0.125em rgba(43, 37, 35, 0.1), 0 0px 0 1px rgba(43, 37, 35, 0.0);

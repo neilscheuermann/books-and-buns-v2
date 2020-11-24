@@ -2,28 +2,18 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
+import PodcastPlayer from '../components/PodcastPlayer'
+
 export default function PodcastEpisodeTemplate({ data }) {
   const podcastEpisode = data.podcastEpisode.item
   const { title, isoDate, content, itunes } = podcastEpisode
+  const { libsynItemId } = data.libsynParsedItem
 
   return (
     <PodcastStyles className="apply-max-width-blog">
       <h1>{title}</h1>
       <p>{isoDate}</p>
-      <iframe
-        style={{ border: 'none;' }}
-        title="podcast player"
-        src="//html5-player.libsyn.com/embed/episode/id/16832135/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/f79b15/"
-        height="90"
-        width="100%"
-        scrolling="no"
-        allowfullscreen
-        webkitallowfullscreen
-        mozallowfullscreen
-        oallowfullscreen
-        msallowfullscreen
-      ></iframe>
-      {/* <img src={itunes.image} alt={`${title} cover`} /> */}
+      <PodcastPlayer episodeId={libsynItemId} />
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </PodcastStyles>
   )
@@ -36,7 +26,7 @@ const PodcastStyles = styled.div`
 `
 
 export const query = graphql`
-  query($id: String!) {
+  query($id: String!, $title: String!) {
     podcastEpisode: podcastRssFeedEpisode(id: { eq: $id }) {
       item {
         title
@@ -48,6 +38,9 @@ export const query = graphql`
           duration
         }
       }
+    }
+    libsynParsedItem(title: { eq: $title }) {
+      libsynItemId
     }
   }
 `
