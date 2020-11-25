@@ -86,13 +86,14 @@ const Typography = createGlobalStyle`
   }
 
   p {
-    font-size: 21px;
+    font-size: 1.3125em; // 21px with 16px as the default
     font-weight: 400;
     line-height: 1.5em;
     margin: 1em 0;
 
     @media (max-width: ${MOBILE_MAX_WIDTH}) {
       font-size: 18px;
+      font-size: 1.125em; // 18px with 16px as the default
     }
   }
 

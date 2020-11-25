@@ -36,7 +36,7 @@ export default function IndexPage({ data }) {
           />
           <div className="intro-section-content apply-max-width">
             <div className="left-side">
-              <p className="intro-text">
+              <p>
                 We are an approachable way to elevate your novel. We believe
                 fiction is a tool to access indistinct parts of our souls to
                 find what truly lies within us. This tool allows us to find
@@ -51,7 +51,11 @@ export default function IndexPage({ data }) {
                 <p>Something profound</p>
               </div>
               <div>
-                <p>Something else profound</p>
+                <p>
+                  If you want great editing tips weekly, <br /> we've got you
+                  covered.{' '}
+                </p>
+                <button>Subscribe</button>
               </div>
             </div>
           </div>
@@ -79,9 +83,6 @@ export default function IndexPage({ data }) {
 
 const IntroSection = styled.div`
   height: calc(100vh - var(--header-height));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 
   // Everything expect the bg picture
   div.intro-section-content {
@@ -89,39 +90,57 @@ const IntroSection = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 90%;
+    height: 100%;
 
     .left-side {
-      height: 90%;
+      height: 80%;
       width: 45%;
       background-color: var(--white);
       display: flex;
       align-items: center;
-      box-shadow: var(--box-shadow);
+      /* box-shadow: var(--box-shadow); */
 
-      .intro-text {
+      p {
+        font-size: 1.5em;
         line-height: 2;
-        padding: 1rem;
+        padding: 0 5rem;
       }
     }
 
     .right-side {
       width: 45%;
-      height: 100%;
+      height: 90%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      /* justify-content: space-between; */
 
       div:nth-child(1) {
         height: 25vh;
         background-color: var(--orange-light);
-        margin-top: 176px;
-        box-shadow: var(--box-shadow);
+        margin-top: 80px;
+        /* box-shadow: var(--box-shadow); */
       }
       div:nth-child(2) {
         height: 25vh;
         background-color: var(--orange-light);
-        box-shadow: var(--box-shadow);
+        margin-top: 80px;
+        /* box-shadow: var(--box-shadow); */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        p {
+          font-size: 2em;
+          color: var(--white);
+          margin-bottom: 0;
+        }
+
+        button {
+          margin-right: 3em;
+          margin-bottom: 1em;
+          align-self: flex-end;
+        }
       }
     }
   }
