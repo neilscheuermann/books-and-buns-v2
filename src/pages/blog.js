@@ -1,12 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
 import BlogList from '../components/BlogList'
 
 export default function BlogPage({ data }) {
   return (
-    <div className="apply-min-height bg-orange-light">
-      <BlogList blogPosts={data.blogPosts.edges} />
-    </div>
+    <Layout>
+      <div className="apply-min-height bg-orange-light">
+        <BlogList blogPosts={data.blogPosts.edges} />
+      </div>
+    </Layout>
   )
 }
 

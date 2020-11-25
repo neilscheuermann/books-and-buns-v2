@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { MOBILE_MAX_WIDTH, WEB_MIN_WIDTH } from '../styles/GlobalStyles'
 import { navigate } from 'gatsby-link'
+import Layout from '../components/Layout'
 
 function encode(data) {
   return Object.keys(data)
@@ -36,77 +37,84 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <WrapperStyles>
-        <h1>Connect with us</h1>
-        <div className="jc-center">
-          <p style={{ width: '750px' }}>
-            Since we work so closely with each project, availability is limited.
-            Please send us what you're interested in and we will create your
-            schedule.
-          </p>
-        </div>
-        <FormWrapper>
-          <FormBackground>
-            <Form
-              name="contact"
-              method="post"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-            >
-              {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-              <input type="hidden" name="bot-field" />
-              <input type="hidden" name="form-name" value="contact" />
-              {/* ============================================== */}
+      <Layout>
+        <WrapperStyles>
+          <h1>Connect with us</h1>
+          <div className="jc-center">
+            <p style={{ width: '750px' }}>
+              Since we work so closely with each project, availability is
+              limited. Please send us what you're interested in and we will
+              create your schedule.
+            </p>
+          </div>
+          <FormWrapper>
+            <FormBackground>
+              <Form
+                name="contact"
+                method="post"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+              >
+                {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+                <input type="hidden" name="bot-field" />
+                <input type="hidden" name="form-name" value="contact" />
+                {/* ============================================== */}
 
-              <InputNameEmailWrapper>
-                <InputHalfOrFullWrapper marginRight8px>
-                  <Input type="text" name="name" id="name" placeholder="Name" />
-                </InputHalfOrFullWrapper>
-                <InputHalfOrFullWrapper marginLeft8px>
+                <InputNameEmailWrapper>
+                  <InputHalfOrFullWrapper marginRight8px>
+                    <Input
+                      type="text"
+                      name="name"
+                      id="name"
+                      placeholder="Name"
+                    />
+                  </InputHalfOrFullWrapper>
+                  <InputHalfOrFullWrapper marginLeft8px>
+                    <Input
+                      type="text"
+                      name="email"
+                      id="email"
+                      placeholder="Email"
+                    />
+                  </InputHalfOrFullWrapper>
+                </InputNameEmailWrapper>
+                <InputWrapper>
                   <Input
                     type="text"
-                    name="email"
-                    id="email"
-                    placeholder="Email"
+                    name="subject"
+                    id="subject"
+                    placeholder="Subject"
                   />
-                </InputHalfOrFullWrapper>
-              </InputNameEmailWrapper>
-              <InputWrapper>
-                <Input
-                  type="text"
-                  name="subject"
-                  id="subject"
-                  placeholder="Subject"
-                />
-              </InputWrapper>
-              <TextAreaWrapper>
-                <TextArea
-                  name="message"
-                  id="message"
-                  rows="6"
-                  placeholder="Message"
-                />
-              </TextAreaWrapper>
-              <div className="actions">
-                <ButtonStyles type="submit" value="Send Message">
-                  Send Message
-                </ButtonStyles>
-              </div>
-            </Form>
-          </FormBackground>
-        </FormWrapper>
-        <ContactInfoWrapper>
-          <ContactItem>
-            <ContactItemHeader>Email</ContactItemHeader>
-            <p>books.buns.co@gmail.com</p>
-          </ContactItem>
-          <ContactItem>
-            <ContactItemHeader>Address</ContactItemHeader>
-            <p>3267 E 3300 S #110</p>
-            <p>Salt Lake City, UT 84109</p>
-          </ContactItem>
-        </ContactInfoWrapper>
-      </WrapperStyles>
+                </InputWrapper>
+                <TextAreaWrapper>
+                  <TextArea
+                    name="message"
+                    id="message"
+                    rows="6"
+                    placeholder="Message"
+                  />
+                </TextAreaWrapper>
+                <div className="actions">
+                  <ButtonStyles type="submit" value="Send Message">
+                    Send Message
+                  </ButtonStyles>
+                </div>
+              </Form>
+            </FormBackground>
+          </FormWrapper>
+          <ContactInfoWrapper>
+            <ContactItem>
+              <ContactItemHeader>Email</ContactItemHeader>
+              <p>books.buns.co@gmail.com</p>
+            </ContactItem>
+            <ContactItem>
+              <ContactItemHeader>Address</ContactItemHeader>
+              <p>3267 E 3300 S #110</p>
+              <p>Salt Lake City, UT 84109</p>
+            </ContactItem>
+          </ContactInfoWrapper>
+        </WrapperStyles>
+      </Layout>
     )
   }
 }
