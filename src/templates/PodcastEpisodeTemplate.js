@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import Layout from '../components/Layout'
 import PodcastPlayer from '../components/PodcastPlayer'
+import { MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
 
 export default function PodcastEpisodeTemplate({ data }) {
   const podcastEpisode = data.podcastEpisode.item
@@ -23,8 +24,22 @@ export default function PodcastEpisodeTemplate({ data }) {
 }
 
 const PodcastStyles = styled.div`
+  padding-top: 5em;
+
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
+    padding-top: 2em;
+  }
+
   a {
     text-decoration: underline;
+  }
+
+  iframe {
+    margin: 1em 0;
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+      margin: unset;
+    }
   }
 `
 

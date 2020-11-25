@@ -8,61 +8,64 @@ import PodcastList from '../components/PodcastList'
 import BlogList from '../components/BlogList'
 import { MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
 import useReactResponsive from '../hooks/useReactResponsive'
+import { useMediaQuery } from '../hooks/useMediaQuery'
 
 export default function IndexPage({ data }) {
-  const { isMobile } = useReactResponsive()
-  const [isMobileTemp, setIsMobileTemp] = useState('')
-  useEffect(() => {
-    setIsMobileTemp(isMobile)
-  }, [isMobile])
+  const isMobile = useMediaQuery(`(max-width: ${MOBILE_MAX_WIDTH})`)
 
   return (
     <Layout>
       <div>
         <IntroSection>
-          <Img
-            fluid={data.mainBackgroundImg.childImageSharp.fluid}
-            style={{
-              position: 'absolute',
-              left: 0,
-              top: isMobileTemp
-                ? `var(--header-height-mobile)`
-                : `var(--header-height)`,
-              width: '100%',
-              height: 'calc(100vh - var(--header-height))',
-              zIndex: 0,
-              boxShadow: 'none',
-            }}
-          />
+          {!isMobile && (
+            <Img
+              className="intro-bg-img"
+              fluid={data.mainBackgroundImg.childImageSharp.fluid}
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: `var(--header-height)`,
+                width: '100%',
+                height: 'calc(100vh - var(--header-height))',
+                zIndex: 0,
+                boxShadow: 'none',
+              }}
+            />
+          )}
           <div className="intro-section-content apply-max-width">
             <div className="left-side">
               <p>
-                We are an approachable way to elevate your novel. We believe
-                fiction is a tool to access indistinct parts of our souls to
-                find what truly lies within us. This tool allows us to find
-                worlds beyond reality, emotions deeper than daily life, and come
-                out with deeper beliefs. Our role is to journey with you through
-                your discovery and refining processes. So your messages, plots,
-                characters, and imagination can reach the people that need it.
+                <span>We are</span> an approachable way to elevate your novel.
+                We believe fiction is a tool to access indistinct parts of our
+                souls to find what truly lies within us. This tool allows us to
+                find worlds beyond reality, emotions deeper than daily life, and
+                come out with deeper beliefs. Our role is to journey with you
+                through your discovery and refining processes. So your messages,
+                plots, characters, and imagination can reach the people that
+                need it.
               </p>
             </div>
             <div className="right-side">
               <div>
-                <p>Something profound</p>
+                <p>
+                  "Challenges make life interesting, however overcoming them is
+                  what makes life meaningful."
+                </p>
+                <span>— Mark Twain</span>
               </div>
               <div>
                 <p>
                   If you want great editing tips weekly, <br /> we've got you
                   covered.{' '}
                 </p>
-                <button>Subscribe</button>
+                <button>Coming soon...</button>
               </div>
             </div>
           </div>
         </IntroSection>
 
         <GridListPreviewStyles className="podcast-list-section apply-max-width">
-          <h1 className="center-text home-page-podcast-h1">
+          <h1 className="center-text">
             <Link to="/podcasts/">Latest Podcasts</Link>
           </h1>
           <PodcastList podcastEpisodes={data.latestPodcastEpisodes.nodes} />
@@ -75,7 +78,7 @@ export default function IndexPage({ data }) {
           <BlogList blogPosts={data.latestBlogPosts.edges} />
         </GridListPreviewStyles>
 
-        <EditingPreviewSection></EditingPreviewSection>
+        {/* <EditingPreviewSection></EditingPreviewSection> */}
       </div>
     </Layout>
   )
@@ -83,6 +86,14 @@ export default function IndexPage({ data }) {
 
 const IntroSection = styled.div`
   height: calc(100vh - var(--header-height));
+
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
+    height: unset;
+
+    .intro-bg-img {
+      /* display: none; */
+    }
+  }
 
   // Everything expect the bg picture
   div.intro-section-content {
@@ -92,6 +103,11 @@ const IntroSection = styled.div`
     align-items: center;
     height: 100%;
 
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+      flex-direction: column;
+      height: unset;
+    }
+
     .left-side {
       height: 80%;
       width: 45%;
@@ -100,10 +116,27 @@ const IntroSection = styled.div`
       align-items: center;
       /* box-shadow: var(--box-shadow); */
 
+      @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        width: auto;
+        margin-top: 1em;
+      }
+
       p {
         font-size: 1.5em;
         line-height: 2;
         padding: 0 5rem;
+
+        @media (max-width: ${MOBILE_MAX_WIDTH}) {
+          padding: 0 1rem;
+          font-size: 1.25em;
+        }
+
+        span {
+          font-size: 2em;
+          font-weight: 700;
+          padding-right: 16px;
+          line-height: 1;
+        }
       }
     }
 
@@ -119,6 +152,21 @@ const IntroSection = styled.div`
         background-color: var(--orange-light);
         margin-top: 80px;
         /* box-shadow: var(--box-shadow); */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        p {
+          font-size: 1.8em;
+          color: var(--black-gray);
+          padding: 0 2em;
+          margin-bottom: 0;
+        }
+        span {
+          font-size: 1.8em;
+          margin-right: 6em;
+          margin-bottom: 1em;
+          align-self: flex-end;
+        }
       }
       div:nth-child(2) {
         height: 25vh;
@@ -137,7 +185,7 @@ const IntroSection = styled.div`
         }
 
         button {
-          margin-right: 3em;
+          margin-right: 2em;
           margin-bottom: 1em;
           align-self: flex-end;
         }
@@ -149,6 +197,10 @@ const IntroSection = styled.div`
 const GridListPreviewStyles = styled.div`
   padding: 3rem 0;
 
+  h1 {
+    padding-bottom: 0.5em;
+  }
+
   &.podcast-list-section {
     background-color: var(--white);
   }
@@ -156,14 +208,6 @@ const GridListPreviewStyles = styled.div`
   &.blog-list-section {
     background-color: var(--orange-light);
     color: var(--white);
-  }
-
-  h1 {
-    &.podcast-list-h1 {
-      @media (max-width: ${MOBILE_MAX_WIDTH}) {
-        display: none;
-      }
-    }
   }
 `
 

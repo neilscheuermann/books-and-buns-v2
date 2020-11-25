@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import Layout from '../components/Layout'
+import { MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
 
 export default function BlogPostTemplate({ data }) {
   const { markdownRemark } = data
@@ -13,9 +14,13 @@ export default function BlogPostTemplate({ data }) {
   return (
     <Layout>
       <BlogPostStyles className="apply-max-width-blog">
-        <h1>{title}</h1>
-        <p>{date}</p>
+        <h1 className="center-text">{title}</h1>
+        <p className="center-text">{date}</p>
         <Img
+          className="gatsby-image"
+          style={{
+            margin: '2em 0',
+          }}
           fluid={{
             ...featuredImage.childImageSharp.fluid,
             aspectRatio: 16 / 9,
@@ -29,8 +34,18 @@ export default function BlogPostTemplate({ data }) {
 }
 
 const BlogPostStyles = styled.div`
+  padding: 5em 0;
+
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
+    padding: 2em 0;
+  }
+
   a {
     text-decoration: underline;
+  }
+
+  gatsby-image {
+    padding: 2em 0;
   }
 `
 

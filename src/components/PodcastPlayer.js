@@ -2,8 +2,7 @@ import React from 'react'
 
 import { ORANGE } from '../styles/GlobalStyles'
 
-// TODO>>>: Remove the default episodeId once the web scraping is wired up
-export default function PodcastPlayer({ episodeId = '16832135' }) {
+export default function PodcastPlayer({ episodeId }) {
   return (
     <iframe
       title="Podcast player"

@@ -1,7 +1,7 @@
 ---
 title: 8 Steps to a Pre-editor Edit
 date: 2020-11-25T03:59:00.000Z
-featuredImage: /images/library-pic.jpeg
+featuredImage: ../images/library-pic.jpeg
 altText: shelves of books
 ---
 <!--\[if gte mso 9]><xml>

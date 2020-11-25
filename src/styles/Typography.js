@@ -92,7 +92,6 @@ const Typography = createGlobalStyle`
     margin: 1em 0;
 
     @media (max-width: ${MOBILE_MAX_WIDTH}) {
-      font-size: 18px;
       font-size: 1.125em; // 18px with 16px as the default
     }
   }

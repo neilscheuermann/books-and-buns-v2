@@ -127,6 +127,13 @@ const GlobalStyles = createGlobalStyle`
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
   }
 
+  .apply-mobile-padding {
+    @media (max-width: ${MOBILE_MAX_WIDTH})
+      padding-left: 16px;
+      padding-right: 16px;
+    border: solid red 3px;
+  }
+
   .bg-orange-light {
     background-color: var(--orange-light);
   }
