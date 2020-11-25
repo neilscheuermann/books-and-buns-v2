@@ -108,7 +108,7 @@ const LogoText = styled.div`
   align-items: center;
 
   @media (max-width: ${MOBILE_MAX_WIDTH}) {
-    font-size: 30px;
+    font-size: 25px;
   }
 `
 

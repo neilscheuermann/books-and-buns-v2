@@ -55,8 +55,8 @@ export default function IndexPage({ data }) {
               </div>
               <div>
                 <p>
-                  If you want great editing tips weekly, <br /> we've got you
-                  covered.{' '}
+                  If you want great editing tips weekly, {!isMobile && <br />}{' '}
+                  we've got you covered.{' '}
                 </p>
                 <button>Coming soon...</button>
               </div>
@@ -145,7 +145,10 @@ const IntroSection = styled.div`
       height: 90%;
       display: flex;
       flex-direction: column;
-      /* justify-content: space-between; */
+
+      @media (max-width: ${MOBILE_MAX_WIDTH}) {
+        width: unset;
+      }
 
       div:nth-child(1) {
         height: 25vh;
@@ -155,33 +158,61 @@ const IntroSection = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        @media (max-width: ${MOBILE_MAX_WIDTH}) {
+          height: unset;
+          margin-top: 1em;
+        }
+
         p {
           font-size: 1.8em;
           color: var(--black-gray);
           padding: 0 2em;
           margin-bottom: 0;
+
+          @media (max-width: ${MOBILE_MAX_WIDTH}) {
+            font-size: 1.5em;
+            padding: 0 1em;
+            margin-bottom: 1em;
+          }
         }
         span {
           font-size: 1.8em;
           margin-right: 6em;
           margin-bottom: 1em;
           align-self: flex-end;
+
+          @media (max-width: ${MOBILE_MAX_WIDTH}) {
+            font-size: 1.5em;
+            margin-right: 1em;
+          }
         }
       }
+
       div:nth-child(2) {
         height: 25vh;
         background-color: var(--orange-light);
         margin-top: 80px;
-        /* box-shadow: var(--box-shadow); */
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
 
+        @media (max-width: ${MOBILE_MAX_WIDTH}) {
+          height: unset;
+          margin-top: 3em;
+        }
+
         p {
           font-size: 2em;
           color: var(--white);
           margin-bottom: 0;
+
+          @media (max-width: ${MOBILE_MAX_WIDTH}) {
+            font-size: 1.5em;
+            padding: 0 1em;
+            margin-bottom: 1em;
+          }
         }
 
         button {
