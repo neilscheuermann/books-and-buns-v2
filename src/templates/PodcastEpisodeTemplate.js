@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
+import Layout from '../components/Layout'
 import PodcastPlayer from '../components/PodcastPlayer'
 
 export default function PodcastEpisodeTemplate({ data }) {
@@ -10,12 +11,14 @@ export default function PodcastEpisodeTemplate({ data }) {
   const { libsynItemId } = data.libsynParsedItem
 
   return (
-    <PodcastStyles className="apply-max-width-blog">
-      <h1>{title}</h1>
-      <p>{isoDate}</p>
-      <PodcastPlayer episodeId={libsynItemId} />
-      <div dangerouslySetInnerHTML={{ __html: content }} />
-    </PodcastStyles>
+    <Layout>
+      <PodcastStyles className="apply-max-width-blog">
+        <h1>{title}</h1>
+        <p>{isoDate}</p>
+        <PodcastPlayer episodeId={libsynItemId} />
+        <div dangerouslySetInnerHTML={{ __html: content }} />
+      </PodcastStyles>
+    </Layout>
   )
 }
 
