@@ -1,7 +1,7 @@
 ---
 title: "8 steps to your novel's pre-professional edit "
 date: 2020-11-25T03:59:00.000Z
-featuredImage: /images/library-pic.jpeg
+featuredImage: ../images/library-pic.jpeg
 altText: shelves of books
 ---
 <!--\[if gte mso 9]><xml>
