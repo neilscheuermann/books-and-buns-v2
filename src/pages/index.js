@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import Layout from '../components/Layout'
@@ -8,30 +7,31 @@ import PodcastList from '../components/PodcastList'
 import BlogList from '../components/BlogList'
 import { MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
 import useReactResponsive from '../hooks/useReactResponsive'
-import { useMediaQuery } from '../hooks/useMediaQuery'
+import flowerSunlightImg from '../assets/images/flower-sunlight.jpg'
 
 export default function IndexPage({ data }) {
-  const isMobile = useMediaQuery(`(max-width: ${MOBILE_MAX_WIDTH})`)
+  const { isMobile } = useReactResponsive()
+  const [isMobileTemp, setIsMobileTemp] = useState('')
+  useEffect(() => {
+    setIsMobileTemp(isMobile)
+  }, [isMobile])
 
   return (
     <Layout>
       <div>
         <IntroSection>
-          {!isMobile && (
-            <Img
-              className="intro-bg-img"
-              fluid={data.mainBackgroundImg.childImageSharp.fluid}
-              style={{
-                position: 'absolute',
-                left: 0,
-                top: `var(--header-height)`,
-                width: '100%',
-                height: 'calc(100vh - var(--header-height))',
-                zIndex: 0,
-                boxShadow: 'none',
-              }}
-            />
-          )}
+          <div
+            className="intro-bg-img"
+            style={{
+              position: 'absolute',
+              left: 0,
+              top: `var(--header-height)`,
+              width: '100%',
+              height: 'calc(100vh - var(--header-height))',
+              zIndex: 0,
+              boxShadow: 'none',
+            }}
+          />
           <div className="intro-section-content apply-max-width">
             <div className="left-side">
               <p>
@@ -55,8 +55,8 @@ export default function IndexPage({ data }) {
               </div>
               <div>
                 <p>
-                  If you want great editing tips weekly, {!isMobile && <br />}{' '}
-                  we've got you covered.{' '}
+                  If you want great editing tips weekly,{' '}
+                  {!isMobileTemp && <br />} we've got you covered.{' '}
                 </p>
                 <button>Coming soon...</button>
               </div>
@@ -77,8 +77,6 @@ export default function IndexPage({ data }) {
           </h1>
           <BlogList blogPosts={data.latestBlogPosts.edges} />
         </GridListPreviewStyles>
-
-        {/* <EditingPreviewSection></EditingPreviewSection> */}
       </div>
     </Layout>
   )
@@ -89,9 +87,15 @@ const IntroSection = styled.div`
 
   @media (max-width: ${MOBILE_MAX_WIDTH}) {
     height: unset;
+  }
 
-    .intro-bg-img {
-      /* display: none; */
+  .intro-bg-img {
+    background-image: url(${flowerSunlightImg});
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+      display: none;
     }
   }
 
@@ -242,20 +246,8 @@ const GridListPreviewStyles = styled.div`
   }
 `
 
-const EditingPreviewSection = styled.div`
-  background-color: var(--orange);
-  height: 70vh;
-`
-
 export const query = graphql`
   query {
-    mainBackgroundImg: file(relativePath: { eq: "flower-sunlight.jpg" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
     latestPodcastEpisodes: allPodcastRssFeedEpisode(limit: 3) {
       nodes {
         id
