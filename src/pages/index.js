@@ -18,66 +18,51 @@ export default function IndexPage({ data }) {
 
   return (
     <Layout>
-      <div>
-        <IntroSection>
-          <div
-            className="intro-bg-img"
-            style={{
-              position: 'absolute',
-              left: 0,
-              top: `var(--header-height)`,
-              width: '100%',
-              height: 'calc(100vh - var(--header-height))',
-              zIndex: 0,
-              boxShadow: 'none',
-            }}
-          />
-          <div className="intro-section-content apply-max-width">
-            <div className="left-side">
+      <IntroSection>
+        <div className="intro-section-content apply-max-width">
+          <div className="left-side">
+            <p>
+              <span>We are</span> an approachable way to elevate your novel. We
+              believe fiction is a tool to access indistinct parts of our souls
+              to find what truly lies within us. This tool allows us to find
+              worlds beyond reality, emotions deeper than daily life, and come
+              out with deeper beliefs. Our role is to journey with you through
+              your discovery and refining processes. So your messages, plots,
+              characters, and imagination can reach the people that need it.
+            </p>
+          </div>
+          <div className="right-side">
+            <div>
               <p>
-                <span>We are</span> an approachable way to elevate your novel.
-                We believe fiction is a tool to access indistinct parts of our
-                souls to find what truly lies within us. This tool allows us to
-                find worlds beyond reality, emotions deeper than daily life, and
-                come out with deeper beliefs. Our role is to journey with you
-                through your discovery and refining processes. So your messages,
-                plots, characters, and imagination can reach the people that
-                need it.
+                "Challenges make life interesting, however overcoming them is
+                what makes life meaningful."
               </p>
+              <span>— Mark Twain</span>
             </div>
-            <div className="right-side">
-              <div>
-                <p>
-                  "Challenges make life interesting, however overcoming them is
-                  what makes life meaningful."
-                </p>
-                <span>— Mark Twain</span>
-              </div>
-              <div>
-                <p>
-                  If you want great editing tips weekly,{' '}
-                  {!isMobileTemp && <br />} we've got you covered.{' '}
-                </p>
-                <button>Coming soon...</button>
-              </div>
+            <div>
+              <p>
+                If you want great editing tips weekly, {!isMobileTemp && <br />}{' '}
+                we've got you covered.{' '}
+              </p>
+              <button>Coming soon...</button>
             </div>
           </div>
-        </IntroSection>
+        </div>
+      </IntroSection>
 
-        <GridListPreviewStyles className="podcast-list-section apply-max-width">
-          <h1 className="center-text">
-            <Link to="/podcasts/">Latest Podcasts</Link>
-          </h1>
-          <PodcastList podcastEpisodes={data.latestPodcastEpisodes.nodes} />
-        </GridListPreviewStyles>
+      <GridListPreviewStyles className="podcast-list-section apply-max-width">
+        <h1 className="center-text">
+          <Link to="/podcasts/">Latest Podcasts</Link>
+        </h1>
+        <PodcastList podcastEpisodes={data.latestPodcastEpisodes.nodes} />
+      </GridListPreviewStyles>
 
-        <GridListPreviewStyles className="blog-list-section">
-          <h1 className="center-text home-page-blog-h1">
-            <Link to="/blog/">Latest Blog Posts</Link>
-          </h1>
-          <BlogList blogPosts={data.latestBlogPosts.edges} />
-        </GridListPreviewStyles>
-      </div>
+      <GridListPreviewStyles className="blog-list-section">
+        <h1 className="center-text home-page-blog-h1">
+          <Link to="/blog/">Latest Blog Posts</Link>
+        </h1>
+        <BlogList blogPosts={data.latestBlogPosts.edges} />
+      </GridListPreviewStyles>
     </Layout>
   )
 }
@@ -85,18 +70,15 @@ export default function IndexPage({ data }) {
 const IntroSection = styled.div`
   height: calc(100vh - var(--header-height));
 
+  background-image: url(${flowerSunlightImg});
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
+
   @media (max-width: ${MOBILE_MAX_WIDTH}) {
     height: unset;
-  }
-
-  .intro-bg-img {
-    background-image: url(${flowerSunlightImg});
-    background-attachment: scroll;
-    background-position: center;
-    background-size: cover;
-    @media (max-width: ${MOBILE_MAX_WIDTH}) {
-      display: none;
-    }
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   // Everything expect the bg picture
@@ -204,7 +186,7 @@ const IntroSection = styled.div`
 
         @media (max-width: ${MOBILE_MAX_WIDTH}) {
           height: unset;
-          margin-top: 3em;
+          margin: 1em 0;
         }
 
         p {
@@ -231,6 +213,10 @@ const IntroSection = styled.div`
 
 const GridListPreviewStyles = styled.div`
   padding: 3rem 0;
+
+  @media (max-width: ${MOBILE_MAX_WIDTH}) {
+    padding: 2rem 0;
+  }
 
   h1 {
     padding-bottom: 0.5em;
