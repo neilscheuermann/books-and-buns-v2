@@ -54,11 +54,13 @@ export default function Footer() {
           style={{ width: '1.5em', height: '1.5em' }}
         />
       </Link>
-      <FontCredit>
-        Font made from{' '}
-        <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a> is licensed
-        by CC BY 3.0
-      </FontCredit>
+      {/* TODO>>>: Remove if we don't replace with another font also from the file, */}
+      {/* `/src/styles/Typography.js` */}
+      {/* <FontCredit> */}
+      {/*   Font made from{' '} */}
+      {/*   <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a> is licensed */}
+      {/*   by CC BY 3.0 */}
+      {/* </FontCredit> */}
     </FooterStyles>
   )
 }
@@ -73,7 +75,7 @@ const FooterStyles = styled.footer`
   position: relative;
 
   @media (max-width: ${MOBILE_MAX_WIDTH}) {
-    margin-bottom: 64px;
+    margin-bottom: 0.25em;
   }
 
   a {

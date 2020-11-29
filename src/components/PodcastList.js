@@ -41,7 +41,7 @@ export const GridStyles = styled.div`
     margin-bottom: 1rem;
 
     @media (max-width: ${MOBILE_MAX_WIDTH}) {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
   }
 `

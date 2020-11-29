@@ -77,8 +77,7 @@ const IntroSection = styled.div`
 
   @media (max-width: ${MOBILE_MAX_WIDTH}) {
     height: unset;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 2em 1em;
   }
 
   // Everything expect the bg picture
@@ -104,7 +103,6 @@ const IntroSection = styled.div`
 
       @media (max-width: ${MOBILE_MAX_WIDTH}) {
         width: auto;
-        margin-top: 1em;
       }
 
       p {
@@ -118,9 +116,9 @@ const IntroSection = styled.div`
         }
 
         span {
-          font-size: 2em;
+          font-size: 1.5em;
           font-weight: 700;
-          padding-right: 16px;
+          padding-right: 8px;
           line-height: 1;
         }
       }
