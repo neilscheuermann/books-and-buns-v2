@@ -1,26 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 
 import PodcastList from '../components/PodcastList'
 import Layout from '../components/Layout'
 import { MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
-import useReactResponsive from '../hooks/useReactResponsive'
 
 export default function PodcastsPage({ data }) {
-  // TODO>>>: Look into the difference between this hook and the one I had to
-  // mess with for mobile queries.
-  const { isMobile } = useReactResponsive()
-  const [isMobileTemp, setIsMobileTemp] = useState('')
-  useEffect(() => {
-    setIsMobileTemp(isMobile)
-  }, [isMobile])
   const podcastEpisodes = data.podcastEpisodes.nodes
 
   return (
     <Layout>
       <PageStyles className="apply-max-width">
-        {isMobileTemp && <h1 className="center-text ">Podcasts</h1>}
+        <h1 className="center-text mobile-header">Podcasts</h1>
         <PodcastList podcastEpisodes={podcastEpisodes} />
       </PageStyles>
     </Layout>
@@ -31,7 +23,16 @@ export const PageStyles = styled.div`
   padding-top: 4em;
 
   @media (max-width: ${MOBILE_MAX_WIDTH}) {
-    padding-top: 2em;
+    padding-top: 1.5em;
+  }
+
+  h1.mobile-header {
+    display: none;
+
+    @media (max-width: ${MOBILE_MAX_WIDTH}) {
+      margin-bottom: 0.5em;
+      display: inherit;
+    }
   }
 `
 
