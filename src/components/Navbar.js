@@ -75,9 +75,6 @@ export default function Navbar() {
             <Link className="navbar-item" to="/blog">
               Blog
             </Link>
-            <Link className="navbar-item" to="/editing">
-              Editing
-            </Link>
             <Link className="navbar-item" to="/connect">
               Connect
             </Link>
