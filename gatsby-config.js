@@ -1,10 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: `Books and Buns`,
-    siteUrl: 'https://books-and-buns-v2.netlify.app/',
-    description: 'website for Books and Buns business',
+    siteUrl: 'https://booksandbuns.com/',
+    description: 'An approachable way to elevate your novel',
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-sass',
     {

@@ -4,12 +4,14 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import BlogList from '../components/BlogList'
+import SEO from '../components/SEO'
 import { MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
 import { PageStyles } from './podcasts'
 
 export default function BlogPage({ data }) {
   return (
     <Layout>
+      <SEO title="Blog" />
       <PageStyles className="apply-min-height bg-orange-light">
         <h1 className="center-text mobile-header">Blog Posts</h1>
         <BlogList blogPosts={data.blogPosts.edges} />

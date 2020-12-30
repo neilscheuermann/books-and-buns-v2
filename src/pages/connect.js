@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { MOBILE_MAX_WIDTH, WEB_MIN_WIDTH } from '../styles/GlobalStyles'
 import { navigate } from 'gatsby-link'
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
 function encode(data) {
   return Object.keys(data)
@@ -38,6 +39,7 @@ export default class Index extends React.Component {
   render() {
     return (
       <Layout>
+        <SEO title="Connect" />
         <WrapperStyles>
           <h1>Connect</h1>
           <p className="center-text">

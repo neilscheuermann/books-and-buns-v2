@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Layout from '../components/Layout'
 import PodcastList from '../components/PodcastList'
 import BlogList from '../components/BlogList'
+import SEO from '../components/SEO'
 import { MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
 import useReactResponsive from '../hooks/useReactResponsive'
 import flowerSunlightImg from '../assets/images/flower-sunlight.jpg'
@@ -18,6 +19,7 @@ export default function IndexPage({ data }) {
 
   return (
     <Layout>
+      <SEO title="Home" />
       <IntroSection>
         <div className="intro-section-content apply-max-width">
           <div className="left-side">

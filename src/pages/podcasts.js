@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 
 import PodcastList from '../components/PodcastList'
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 import { MOBILE_MAX_WIDTH } from '../styles/GlobalStyles'
 
 export default function PodcastsPage({ data }) {
@@ -11,6 +12,7 @@ export default function PodcastsPage({ data }) {
 
   return (
     <Layout>
+      <SEO title="Podcasts" />
       <PageStyles className="apply-max-width">
         <h1 className="center-text mobile-header">Podcasts</h1>
         <PodcastList podcastEpisodes={podcastEpisodes} />
